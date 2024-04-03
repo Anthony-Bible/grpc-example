@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package example;
+option go_package = "github.com/anthony-bible/grpc-example/proto/example";
+service YourService {
+  rpc YourMethod(YourRequest) returns (YourResponse) {}
+}
+
+message YourRequest {
+  string example_field = 1;
+}
+
+message YourResponse {
+  string result = 1;
+}
