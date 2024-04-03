@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-example
+  template:
+    metadata:
+      labels:
+        app: grpc-example
+    spec:
+      containers:
+      - name: grpc-example
+        image: ghcr.io/anthony-bible/grpc-example:latest
+        ports:
+        - containerPort: 50051
+      imagePullSecrets:
+      - name: regcred
